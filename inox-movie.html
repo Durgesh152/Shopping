@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inox-Movie</title>
+
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+
+    <script type="text/javascript">
+
+        function BookClick()
+        {
+            document.getElementById("booking").style.display="block";
+            document.getElementById("movieses").style.display="none";
+
+
+            document.getElementById("movies").innerHTML=document.getElementById("IstMovie").value;
+            document.getElementById("cinema").innerHTML=document.getElementById("IstCinema").value;
+            document.getElementById("date").innerHTML=document.getElementById("IstDate").value;
+            document.getElementById("time").innerHTML=document.getElementById("IstTime").value;
+            document.getElementById("seats").innerHTML=document.getElementById("IstSeats").value;
+
+            movieName = document.getElementById("IstMovie").value;
+
+            poster=document.getElementById("imgPoster");
+
+            if(movieName=="The Guardians")
+            {
+                poster.src="../public/imges/poster1.png";
+            }
+            else
+            {
+
+                poster.src="../public/imges/poster2.png";
+
+            }
+
+
+
+        }
+        
+        
+
+    </script>
+
+    <style>
+
+        #booking{
+            position: absolute;
+
+            left: 40%;
+
+            top: 20px;
+        }
+    </style>
+</head>
+<body class="container-fluid">
+
+    <div class="mt-3" id="movieses">
+        <button class="btn btn-danger" data-bs-target="#movie" data-bs-toggle="modal">Quick Booking</button>
+   </div>
+
+   <div class="modal fade" id="movie">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h3>Quick Booking</h3>
+
+                <button class="btn-close" data-bs-dismiss="modal"></button>
+
+
+            </div>
+            <div class="modal-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <select class="form-select" id="IstMovie">
+                            <option>Select Movie</option>
+                            <option>The Guardians</option>
+                            <option>Kerala Story</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <select class="form-select" id="IstCinema">
+                            <option>Select Cinema</option>
+                            <option>Bandari-Shirput</option>
+                            <option>City-Pride</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <select class="form-select" id="IstDate">
+                            <option>Select Date</option>
+                            <option>Today 04-May</option>
+                            <option>Tomorrow 05-May</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <select class="form-select" id="IstTime">
+                            <option>Select Timing</option>
+                            <option>6:30 PM</option>
+                            <option>9:15 PM</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <select class="form-select" id="IstSeats">
+                            <option>Select Seats</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <button class="btn btn-danger" data-bs-dismiss="modal" onclick="BookClick()">Book</button>
+                    </div>
+
+
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+   </div>
+
+   <div class="mt-3 w-25" id="booking" style="display: none;">
+    <h3 class="bg-dark text-white p-2">Booking Summary</h3>
+
+    <dl class="border border-4 p-2">
+        <dt>
+            <img id="imgPoster" width="100%" height="250" >
+        </dt>
+        <dt class="col-4">Movie Name</dt>
+        <dd id="movies" class="col-9"></dd>
+        <dt class="col-4">Cinema</dt>
+        <dd id="cinema" class="col-9"></dd>
+        <dt class="col-4">Date</dt>
+        
+        <dd id="date" class="col-9"></dd>
+        <dt class="col-4">Show Time</dt>
+        <dd id="time" class="col-9"></dd>
+        <dt class="col-4">Seats</dt>
+        <dd id="seats" class="col-9"></dd>
+    </dl>
+    <button class="btn btn-warning" data-bs-target="#movie" data-bs-toggle="modal">
+        Modify Booking
+    </button>
+
+
+   </div>
+   
+    
+
+
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>
